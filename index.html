@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CIAFUT - Enlace Oficial</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6; /* Fondo gris muy claro */
+            color: #111827; /* Texto principal oscuro */
+        }
+        .text-ciafut { color: #00e65b; } /* Verde CIAFUT */
+        .bg-ciafut { background-color: #00e65b; }
+        .border-ciafut { border-color: #00e65b; }
+        .bg-card { background-color: #ffffff; } /* Tarjetas blancas */
+        
+        .mobile-container {
+            max-width: 430px;
+            margin: auto;
+            min-height: 100vh;
+            padding: 2rem 1rem;
+            background: linear-gradient(180deg, #f9fafb 0%, #e5e7eb 100%);
+        }
+
+        /* Accordion transition utility */
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+        }
+        .accordion-content.open {
+            padding-top: 1rem;
+            max-height: 250px; /* Ajuste dinámico de altura máxima */
+        }
+        
+        /* Chat scrollbar customization */
+        .chat-scroll::-webkit-scrollbar {
+            width: 4px;
+        }
+        .chat-scroll::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .chat-scroll::-webkit-scrollbar-thumb {
+            background-color: #d1d5db;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+<body class="bg-gray-200">
+
+    <div class="mobile-container shadow-2xl relative overflow-hidden">
+        <!-- Decorative background element -->
+        <div class="absolute top-0 right-0 w-64 h-64 bg-[#00e65b] opacity-10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+
+        <!-- Profile Header -->
+        <header class="text-center mb-6 relative z-10">
+            <!-- El logo se cargará aquí. Si no se encuentra, mostrará el texto con el color verde como respaldo -->
+            <img src="LOGO%20CIAFUT-VERDE%20BLANCO.png" alt="CIAFUT Logo" class="mx-auto h-20 md:h-24 object-contain mb-3" onerror="this.outerHTML='<h1 class=\'text-5xl font-black text-[#00e65b] tracking-tighter mb-2\'>CIAFUT</h1>'">
+            <p class="text-[11px] font-bold text-gray-500 mt-1 uppercase tracking-widest">Importadora de Repuestos<br><span class="text-gray-400 font-medium">Al por mayor y menor</span></p>
+        </header>
+
+        <!-- Main Actions: AI Assistant & WhatsApp -->
+        <div class="mb-8 space-y-4 relative z-10">
+            
+            <!-- Botón Principal del Asistente IA (Diseño Dark Mode para contraste) -->
+            <button onclick="openAiAssistant('chat')" 
+               class="bg-gray-900 hover:bg-black text-white w-full py-4 px-5 rounded-xl flex items-center justify-between shadow-xl transition-all duration-200 active:scale-95 text-left group border border-gray-800">
+                <span class="flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-full bg-[#00e65b]/20 flex items-center justify-center text-[#00e65b] group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-robot text-2xl"></i>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-base font-extrabold leading-tight">Asistente Virtual IA</span>
+                        <span class="text-[11px] font-medium text-gray-400 tracking-wide">Identifica repuestos gratis aquí</span>
+                    </div>
+                </span>
+                <div class="flex items-center gap-2">
+                     <span class="bg-[#00e65b] text-black font-bold text-[9px] px-2 py-1 rounded-md animate-pulse uppercase tracking-widest hidden sm:block">Activo</span>
+                     <i class="fas fa-chevron-right text-sm text-gray-500 group-hover:text-white transition-colors"></i>
+                </div>
+            </button>
+
+            <!-- Botón de WhatsApp (Verde CIAFUT) -->
+            <a href="https://wa.me/593998220291?text=Hola%20CIAFUT,%20vengo%20de%20su%20página%20y%20solicito%20cotizar%20un%20repuesto." 
+               target="_blank" 
+               class="bg-[#00e65b] hover:bg-[#00cc51] text-black w-full py-4 px-5 rounded-xl flex items-center justify-between shadow-lg transition-transform duration-200 active:scale-95 text-left">
+                <span class="flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-full bg-black/10 flex items-center justify-center text-black">
+                        <i class="fab fa-whatsapp text-3xl"></i>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-base font-extrabold leading-tight">Cotizar por WhatsApp</span>
+                        <span class="text-[11px] font-semibold text-black/70 tracking-wide">Ventas por mayor y menor</span>
+                    </div>
+                </span>
+                <i class="fas fa-chevron-right text-sm text-black/50"></i>
+            </a>
+            
+        </div>
+
+        <!-- Dynamic News Section -->
+        <section class="bg-white rounded-xl p-5 mb-8 border border-gray-100 shadow-sm relative z-10">
+            <div class="flex items-center gap-2 mb-3 text-[#00e65b] text-xs font-extrabold uppercase tracking-wider">
+                <i class="fas fa-newspaper animate-pulse text-black"></i>
+                <span class="text-gray-800">Actualidad Automotriz EC</span>
+            </div>
+            <h2 id="news-title" class="text-base font-bold text-gray-900 leading-snug mb-2">Cargando...</h2>
+            <p id="news-desc" class="text-sm text-gray-600 leading-relaxed">Por favor, espera.</p>
+        </section>
+
+        <!-- Preventive Maintenance Tips Section -->
+        <section class="space-y-3 relative z-10">
+            <div class="text-center text-gray-400 text-[10px] font-bold uppercase tracking-widest mb-4">
+                Consejos para cuidar tu vehículo
+            </div>
+
+            <!-- Tip 1 -->
+            <div class="bg-white rounded-xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                <button onclick="toggleAccordion(this)" class="w-full p-4 flex items-center justify-between text-left focus:outline-none group">
+                    <span class="flex items-center gap-3 font-bold text-sm text-gray-800">
+                        <div class="w-8 h-8 rounded-lg bg-gray-50 flex items-center justify-center text-black group-hover:bg-[#00e65b] transition-colors">
+                            <i class="fas fa-oil-can text-sm"></i>
+                        </div>
+                        Filtros y Lubricación
+                    </span>
+                    <i class="fas fa-chevron-down text-xs text-gray-400 transition-transform duration-200"></i>
+                </button>
+                <div class="accordion-content px-4 pb-4 text-xs text-gray-600 leading-relaxed border-t border-gray-50">
+                    Utilizar repuestos de calidad garantizada en tus cambios de aceite prolonga la vida del motor. Un filtro genérico defectuoso puede obstruir el flujo y fundir tu motor en minutos.
+                </div>
+            </div>
+
+            <!-- Tip 2 -->
+            <div class="bg-white rounded-xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                <button onclick="toggleAccordion(this)" class="w-full p-4 flex items-center justify-between text-left focus:outline-none group">
+                    <span class="flex items-center gap-3 font-bold text-sm text-gray-800">
+                        <div class="w-8 h-8 rounded-lg bg-gray-50 flex items-center justify-center text-black group-hover:bg-[#00e65b] transition-colors">
+                            <i class="fas fa-compact-disc text-sm"></i>
+                        </div>
+                        Sistema de Frenado
+                    </span>
+                    <i class="fas fa-chevron-down text-xs text-gray-400 transition-transform duration-200"></i>
+                </button>
+                <div class="accordion-content px-4 pb-4 text-xs text-gray-600 leading-relaxed border-t border-gray-50">
+                    Si escuchas un chirrido agudo al pisar el pedal, es tiempo de cambiar las pastillas. Exceder su uso dañará el disco de freno, multiplicando el costo de tu reparación.
+                </div>
+            </div>
+
+            <!-- Tip 3 -->
+            <div class="bg-white rounded-xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                <button onclick="toggleAccordion(this)" class="w-full p-4 flex items-center justify-between text-left focus:outline-none group">
+                    <span class="flex items-center gap-3 font-bold text-sm text-gray-800">
+                        <div class="w-8 h-8 rounded-lg bg-gray-50 flex items-center justify-center text-black group-hover:bg-[#00e65b] transition-colors">
+                            <i class="fas fa-car-crush text-sm"></i>
+                        </div>
+                        Suspensión y Amortiguación
+                    </span>
+                    <i class="fas fa-chevron-down text-xs text-gray-400 transition-transform duration-200"></i>
+                </button>
+                <div class="accordion-content px-4 pb-4 text-xs text-gray-600 leading-relaxed border-t border-gray-50">
+                    Las vías irregulares exigen mucho a tu tren delantero. Revisa rótulas y terminales de dirección una vez al año; una pieza rota en movimiento puede causar la pérdida total de control.
+                </div>
+            </div>
+
+            <!-- Tip 4 -->
+            <div class="bg-white rounded-xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                <button onclick="toggleAccordion(this)" class="w-full p-4 flex items-center justify-between text-left focus:outline-none group">
+                    <span class="flex items-center gap-3 font-bold text-sm text-gray-800">
+                        <div class="w-8 h-8 rounded-lg bg-gray-50 flex items-center justify-center text-black group-hover:bg-[#00e65b] transition-colors">
+                            <i class="fas fa-temperature-high text-sm"></i>
+                        </div>
+                        Refrigeración del Motor
+                    </span>
+                    <i class="fas fa-chevron-down text-xs text-gray-400 transition-transform duration-200"></i>
+                </button>
+                <div class="accordion-content px-4 pb-4 text-xs text-gray-600 leading-relaxed border-t border-gray-50">
+                    Controla siempre el nivel de refrigerante (nunca agua). Cambiar mangueras resecas a tiempo evita fugas que producen sobrecalentamiento y daños severos en el empaque del cabezote.
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer / Redes Sociales Reales -->
+        <footer class="mt-10 text-center pt-6 relative z-10">
+            <div class="flex justify-center space-x-6 text-gray-500 mb-6">
+                <!-- Instagram -->
+                <a href="https://www.instagram.com/ciafutautopartes" target="_blank" class="hover:text-black hover:scale-110 transition-all">
+                    <i class="fab fa-instagram text-xl"></i>
+                </a>
+                <!-- Facebook -->
+                <a href="https://www.facebook.com/CiafutRepuestos/" target="_blank" class="hover:text-black hover:scale-110 transition-all">
+                    <i class="fab fa-facebook text-xl"></i>
+                </a>
+                <!-- TikTok -->
+                <a href="https://www.tiktok.com/@ciafutsa?is_from_webapp=1&sender_device=pc" target="_blank" class="hover:text-black hover:scale-110 transition-all">
+                    <i class="fab fa-tiktok text-xl"></i>
+                </a>
+            </div>
+            <p class="text-[10px] font-semibold text-gray-400 tracking-widest">&copy; 2026 CIAFUT. Todos los derechos reservados.</p>
+        </footer>
+    </div>
+
+    <!-- Floating Action Button for AI Assistant -->
+    <button onclick="openAiAssistant('chat')" class="fixed bottom-6 right-6 w-14 h-14 bg-gray-900 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform duration-300 z-40 border-2 border-[#00e65b]">
+        <i class="fa-solid fa-robot text-xl text-[#00e65b]"></i>
+    </button>
+
+    <!-- AI ASSISTANT PANEL (Modal) -->
+    <div id="ai-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm flex justify-center items-end md:items-center z-50 hidden transition-opacity duration-300">
+        <!-- Panel con estilo invertido (Oscuro) para que resalte del fondo claro -->
+        <div class="bg-gray-900 w-full md:max-w-[440px] rounded-t-3xl md:rounded-3xl border border-gray-800 shadow-2xl overflow-hidden flex flex-col h-[85vh] md:h-[650px] transform translate-y-full md:translate-y-0 transition-transform duration-300" id="modal-container">
+            
+            <!-- Modal Header -->
+            <div class="p-4 border-b border-gray-800 flex justify-between items-center bg-black">
+                <div class="flex items-center space-x-2.5">
+                    <div class="w-8 h-8 rounded-lg bg-[#00e65b] flex items-center justify-center text-black">
+                        <i class="fa-solid fa-bolt text-sm"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-sm font-extrabold text-white" id="modal-title">Asistente CIAFUT</h2>
+                        <span class="text-[9px] text-[#00e65b] flex items-center gap-1">
+                            <span class="w-1.5 h-1.5 rounded-full bg-[#00e65b] animate-pulse"></span> En línea
+                        </span>
+                    </div>
+                </div>
+                <button onclick="closeAiAssistant()" class="w-8 h-8 rounded-full bg-gray-800 hover:bg-gray-700 text-gray-400 flex items-center justify-center transition-colors">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- Tab Selectors -->
+            <div class="flex border-b border-gray-800/80 bg-black text-xs">
+                <button id="tab-chat" onclick="switchTab('chat')" class="flex-1 py-3 text-center font-bold text-[#00e65b] border-b-2 border-[#00e65b] transition-all">
+                    <i class="fa-solid fa-comments mr-1.5"></i> Chat Asesor
+                </button>
+                <button id="tab-photo" onclick="switchTab('photo')" class="flex-1 py-3 text-center font-semibold text-gray-400 hover:text-gray-200 transition-all">
+                    <i class="fa-solid fa-camera-retro mr-1.5"></i> Identificar Pieza
+                </button>
+            </div>
+
+            <!-- Modal Content - Chat Tab -->
+            <div id="content-chat" class="flex-1 overflow-y-auto p-4 space-y-4 chat-scroll bg-gray-900">
+                <!-- System Welcome -->
+                <div class="flex items-start gap-2.5">
+                    <div class="w-7 h-7 rounded bg-black flex items-center justify-center text-[#00e65b] text-xs">
+                        <i class="fa-solid fa-robot"></i>
+                    </div>
+                    <div class="bg-gray-800 p-3 rounded-2xl rounded-tl-none max-w-[85%] text-xs text-gray-300 leading-relaxed shadow-md border border-gray-700">
+                        ¡Hola! Soy tu <strong>Asesor Virtual de CIAFUT</strong>. ¿Eres taller, distribuidor o buscas un repuesto para tu auto? Cuéntame qué necesitas o describe la falla que presenta tu vehículo.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Content - Photo Tab -->
+            <div id="content-photo" class="hidden flex-1 overflow-y-auto p-5 space-y-4 chat-scroll flex flex-col justify-center items-center text-center bg-gray-900">
+                <div class="w-16 h-16 rounded-2xl bg-[#00e65b]/10 text-[#00e65b] flex items-center justify-center mb-2 shadow-inner">
+                    <i class="fa-solid fa-camera text-2xl"></i>
+                </div>
+                <h3 class="text-sm font-bold text-white">Escáner de Repuestos</h3>
+                <p class="text-xs text-gray-400 max-w-[280px] leading-relaxed">
+                    Sube una foto de la pieza que necesitas y te ayudaré a identificarla rápidamente.
+                </p>
+
+                <!-- File Input Area -->
+                <div class="w-full mt-4">
+                    <label for="image-upload" class="cursor-pointer w-full bg-black hover:bg-gray-800 border border-dashed border-gray-700 hover:border-[#00e65b] p-6 rounded-2xl flex flex-col items-center justify-center transition-all group">
+                        <i class="fa-solid fa-cloud-arrow-up text-xl text-gray-500 group-hover:text-[#00e65b] mb-2"></i>
+                        <span class="text-xs font-semibold text-gray-300 group-hover:text-white" id="upload-label">Seleccionar foto</span>
+                    </label>
+                    <input type="file" id="image-upload" accept="image/*" class="hidden" onchange="handleImageSelection(event)">
+                </div>
+
+                <!-- Preview Area -->
+                <div id="image-preview-container" class="hidden w-full bg-black p-3 rounded-2xl border border-gray-800 flex items-center justify-between">
+                    <div class="flex items-center space-x-3 overflow-hidden">
+                        <img id="image-preview" src="#" alt="Preview" class="w-12 h-12 rounded-lg object-cover flex-shrink-0">
+                        <span class="text-left text-xs font-medium text-gray-300 truncate max-w-[120px]" id="preview-filename">archivo.jpg</span>
+                    </div>
+                    <button onclick="clearSelectedImage()" class="text-gray-500 hover:text-red-400 text-sm p-2 flex-shrink-0">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+                </div>
+
+                <!-- Run Analysis Button -->
+                <button id="btn-analyze-image" onclick="analyzePartImage()" class="hidden w-full bg-[#00e65b] hover:bg-[#00cc51] text-black font-extrabold py-3 rounded-xl text-xs transition-colors shadow-lg mt-4">
+                    Analizar Imagen
+                </button>
+
+                <!-- Analysis Result Display -->
+                <div id="analysis-result-container" class="hidden w-full text-left bg-black p-4 rounded-2xl border border-gray-800 text-xs leading-relaxed text-gray-300 mt-4">
+                </div>
+            </div>
+
+            <!-- Modal Footer / Input (For Chat Tab) -->
+            <div id="chat-input-area" class="p-3 border-t border-gray-800 bg-black flex items-center space-x-2">
+                <input type="text" id="chat-message-input" placeholder="Escribe tu consulta..." class="flex-1 bg-gray-900 border border-gray-800 rounded-xl px-4 py-3 text-xs text-white focus:outline-none focus:ring-1 focus:ring-[#00e65b] transition-all" onkeypress="handleKeyPress(event)">
+                <button onclick="sendChatMessage()" class="w-10 h-10 rounded-xl bg-[#00e65b] hover:bg-[#00cc51] text-black flex items-center justify-center shadow-lg transition-colors flex-shrink-0">
+                    <i class="fa-solid fa-paper-plane text-xs"></i>
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- LÓGICA DE LA PÁGINA E INTELIGENCIA ARTIFICIAL -->
+    <script>
+        // 1. Noticias Rotativas (Enfocadas a Ecuador e importación)
+        const automotiveNews = [
+            { title: "Tendencias de Importación 2026", desc: "El mercado ecuatoriano reporta un incremento en la demanda de repuestos alternativos de alta calidad certificados (OES) frente al repuesto original." },
+            { title: "Nuevas Regulaciones Aduaneras", desc: "Las normativas actuales en Ecuador agilizan los trámites para la importación de autopartes, permitiendo mayor rotación de stock para mayoristas." },
+            { title: "Tecnología en Suspensión", desc: "El ingreso de amortiguadores con gas presurizado está dominando el mercado local por su mayor durabilidad en nuestras vías y carreteras." },
+            { title: "Alerta por Repuestos Falsificados", desc: "Importadoras oficiales como CIAFUT recomiendan exigir sellos de garantía para evitar daños severos causados por repuestos sin certificación." },
+            { title: "Mantenimiento Preventivo EC", desc: "Debido a los cambios climáticos extremos en el país, especialistas sugieren reducir los intervalos de cambio de refrigerante y filtros de aire." }
+        ];
+
+        function loadDailyNews() {
+            const currentDay = new Date().getDate();
+            const newsIndex = currentDay % automotiveNews.length;
+            const todayNews = automotiveNews[newsIndex];
+            
+            document.getElementById('news-title').innerText = todayNews.title;
+            document.getElementById('news-desc').innerText = todayNews.desc;
+        }
+
+        function toggleAccordion(element) {
+            const content = element.nextElementSibling;
+            const icon = element.querySelector('.fa-chevron-down');
+            
+            if (content.classList.contains('open')) {
+                content.classList.remove('open');
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                document.querySelectorAll('.accordion-content').forEach(el => el.classList.remove('open'));
+                document.querySelectorAll('.fa-chevron-down').forEach(ic => ic.style.transform = 'rotate(0deg)');
+                
+                content.classList.add('open');
+                icon.style.transform = 'rotate(180deg)';
+            }
+        }
+
+        window.onload = loadDailyNews;
+
+        // --- ASISTENTE IA DE CIAFUT ---
+
+        let apiKey = ""; 
+        let modelName = "gemini-2.5-flash-preview-09-2025"; 
+
+        if (window.location.hostname !== "" && !window.location.hostname.includes("usercontent.goog")) {
+            // Dividimos la clave de CIAFUT
+            const parte1 = "AIzaSyBOrkvCduek4nU"; 
+            const parte2 = "8aGvhUdzFO7TBL8RjuZ4";
+            
+            apiKey = parte1 + parte2; 
+            modelName = "gemini-2.5-flash"; 
+        }
+
+        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/${modelName}:generateContent?key=${apiKey}`;
+
+        let activeTab = 'chat';
+        let selectedBase64Image = null;
+        let chatHistory = [];
+
+        const systemInstruction = `
+        Eres el Asesor Virtual experto de CIAFUT, una reconocida empresa importadora de repuestos automotrices en Ecuador. 
+        CIAFUT vende repuestos tanto AL POR MAYOR (a mecánicas y distribuidores) como AL POR MENOR (cliente final).
+        Ayuda al usuario a identificar las autopartes que necesita o brinda consejos rápidos de mecánica preventiva.
+        Mantén tus respuestas cordiales, directas y en un máximo de 2 párrafos.
+        Siempre concluye invitando al cliente a tocar el botón "Cotizar por WhatsApp" para validar disponibilidad y precios de importador.
+        `;
+
+        function openAiAssistant(tab = 'chat') {
+            const modal = document.getElementById('ai-modal');
+            const container = document.getElementById('modal-container');
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.add('opacity-100');
+                container.classList.remove('translate-y-full');
+            }, 10);
+            switchTab(tab);
+        }
+
+        function closeAiAssistant() {
+            const modal = document.getElementById('ai-modal');
+            const container = document.getElementById('modal-container');
+            container.classList.add('translate-y-full');
+            modal.classList.remove('opacity-100');
+            setTimeout(() => { modal.classList.add('hidden'); }, 300);
+        }
+
+        function switchTab(tab) {
+            activeTab = tab;
+            const tabChat = document.getElementById('tab-chat');
+            const tabPhoto = document.getElementById('tab-photo');
+            const contentChat = document.getElementById('content-chat');
+            const contentPhoto = document.getElementById('content-photo');
+            const chatInputArea = document.getElementById('chat-input-area');
+
+            if (tab === 'chat') {
+                tabChat.className = "flex-1 py-3 text-center font-bold text-[#00e65b] border-b-2 border-[#00e65b] transition-all";
+                tabPhoto.className = "flex-1 py-3 text-center font-semibold text-gray-400 hover:text-gray-200 transition-all";
+                contentChat.classList.remove('hidden');
+                contentPhoto.classList.add('hidden');
+                chatInputArea.classList.remove('hidden');
+            } else {
+                tabPhoto.className = "flex-1 py-3 text-center font-bold text-[#00e65b] border-b-2 border-[#00e65b] transition-all";
+                tabChat.className = "flex-1 py-3 text-center font-semibold text-gray-400 hover:text-gray-200 transition-all";
+                contentChat.classList.add('hidden');
+                contentPhoto.classList.remove('hidden');
+                chatInputArea.classList.add('hidden');
+            }
+        }
+
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') sendChatMessage();
+        }
+
+        async function sendChatMessage() {
+            const input = document.getElementById('chat-message-input');
+            const query = input.value.trim();
+            if (!query) return;
+            input.value = '';
+
+            appendUserMessage(query);
+            const loadingId = appendLoadingMessage();
+
+            try {
+                chatHistory.push({ role: "user", parts: [{ text: query }] });
+                const payload = {
+                    contents: chatHistory,
+                    systemInstruction: { parts: [{ text: systemInstruction }] }
+                };
+
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                const result = await response.json();
+                
+                if (!response.ok) {
+                    console.error("Error API:", result);
+                    throw new Error(result.error?.message || "Error en la petición de la API");
+                }
+
+                const aiResponseText = result.candidates?.[0]?.content?.parts?.[0]?.text;
+
+                removeLoadingMessage(loadingId);
+                if (aiResponseText) {
+                    appendAiMessage(aiResponseText);
+                    chatHistory.push({ role: "model", parts: [{ text: aiResponseText }] });
+                } else {
+                    appendAiMessage("Disculpa, tuve un problema procesando tu consulta. Intenta de nuevo.");
+                }
+            } catch (error) {
+                console.error("Catch Error:", error);
+                removeLoadingMessage(loadingId);
+                appendAiMessage("⚠️ **Error de conexión:** No se pudo contactar con el servidor. Detalle: " + error.message);
+            }
+        }
+
+        function appendUserMessage(text) {
+            const chatContainer = document.getElementById('content-chat');
+            const msgHtml = `
+                <div class="flex items-start justify-end gap-2.5">
+                    <div class="bg-[#00e65b]/20 border border-[#00e65b]/30 p-3 rounded-2xl rounded-tr-none max-w-[85%] text-xs text-white leading-relaxed shadow-sm break-words">
+                        ${text}
+                    </div>
+                </div>`;
+            chatContainer.insertAdjacentHTML('beforeend', msgHtml);
+            scrollChatToBottom();
+        }
+
+        function appendAiMessage(text) {
+            const chatContainer = document.getElementById('content-chat');
+            const formattedText = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>');
+            const msgHtml = `
+                <div class="flex items-start gap-2.5">
+                    <div class="w-7 h-7 rounded bg-black flex items-center justify-center text-[#00e65b] text-xs flex-shrink-0">
+                        <i class="fa-solid fa-robot"></i>
+                    </div>
+                    <div class="bg-gray-800 p-3 rounded-2xl rounded-tl-none max-w-[85%] text-xs text-gray-300 leading-relaxed shadow-md border border-gray-700 break-words">
+                        ${formattedText}
+                    </div>
+                </div>`;
+            chatContainer.insertAdjacentHTML('beforeend', msgHtml);
+            scrollChatToBottom();
+        }
+
+        function appendLoadingMessage() {
+            const uniqueId = 'loading-' + Date.now();
+            const msgHtml = `
+                <div id="${uniqueId}" class="flex items-start gap-2.5">
+                    <div class="w-7 h-7 rounded bg-black flex items-center justify-center text-[#00e65b] text-xs animate-pulse flex-shrink-0">
+                        <i class="fa-solid fa-robot animate-spin"></i>
+                    </div>
+                    <div class="bg-gray-800 p-3 rounded-2xl rounded-tl-none text-xs text-gray-500 border border-gray-700">
+                        Pensando...
+                    </div>
+                </div>`;
+            document.getElementById('content-chat').insertAdjacentHTML('beforeend', msgHtml);
+            scrollChatToBottom();
+            return uniqueId;
+        }
+
+        function removeLoadingMessage(id) {
+            const loadingEl = document.getElementById(id);
+            if (loadingEl) loadingEl.remove();
+        }
+
+        function scrollChatToBottom() {
+            const chatContainer = document.getElementById('content-chat');
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        }
+
+        // --- LÓGICA DE FOTO ANÁLISIS ---
+        function handleImageSelection(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            document.getElementById('preview-filename').innerText = file.name;
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                selectedBase64Image = e.target.result.split(',')[1];
+                window.uploadedMimeType = file.type; 
+                
+                document.getElementById('image-preview').src = e.target.result;
+                document.getElementById('image-preview-container').classList.remove('hidden');
+                document.getElementById('btn-analyze-image').classList.remove('hidden');
+                document.getElementById('upload-label').innerText = "Cambiar foto";
+                document.getElementById('analysis-result-container').classList.add('hidden');
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function clearSelectedImage() {
+            selectedBase64Image = null;
+            document.getElementById('image-upload').value = '';
+            document.getElementById('image-preview-container').classList.add('hidden');
+            document.getElementById('btn-analyze-image').classList.add('hidden');
+            document.getElementById('analysis-result-container').classList.add('hidden');
+            document.getElementById('upload-label').innerText = "Seleccionar foto";
+        }
+
+        async function analyzePartImage() {
+            if (!selectedBase64Image) return;
+
+            const analyzeBtn = document.getElementById('btn-analyze-image');
+            const resultContainer = document.getElementById('analysis-result-container');
+            
+            analyzeBtn.disabled = true;
+            analyzeBtn.innerHTML = `<i class="fa-solid fa-circle-notch animate-spin mr-2"></i> Analizando...`;
+            resultContainer.classList.add('hidden');
+
+            const query = "Identifica qué pieza mecánica es en esta imagen. Explica brevemente su función y si se suele dañar frecuentemente. Al final, invita al usuario a consultar el precio y comprar en CIAFUT.";
+            const mimeType = window.uploadedMimeType || "image/jpeg";
+
+            try {
+                const payload = {
+                    contents: [{
+                        role: "user",
+                        parts: [
+                            { text: query },
+                            { inlineData: { mimeType: mimeType, data: selectedBase64Image } }
+                        ]
+                    }]
+                };
+
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                const result = await response.json();
+                
+                 if (!response.ok) {
+                    console.error("Error API:", result);
+                    throw new Error(result.error?.message || "Error en la petición de la API");
+                }
+
+                const aiResultText = result.candidates?.[0]?.content?.parts?.[0]?.text;
+
+                if (aiResultText) {
+                    const formattedResult = aiResultText.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>');
+                    resultContainer.innerHTML = `
+                        <div class="text-[#00e65b] font-bold mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2"></i> Análisis CIAFUT</div>
+                        <div class="break-words">${formattedResult}</div>`;
+                } else {
+                    resultContainer.innerHTML = `<span class="text-red-400">Lo siento, la imagen no es clara para identificar el repuesto.</span>`;
+                }
+            } catch (error) {
+                console.error("Catch Error:", error);
+                resultContainer.innerHTML = `<span class="text-red-400">⚠️ Error de conexión: ${error.message}</span>`;
+            } finally {
+                resultContainer.classList.remove('hidden');
+                analyzeBtn.disabled = false;
+                analyzeBtn.innerText = "Analizar Imagen";
+            }
+        }
+    </script>
+</body>
+</html>
